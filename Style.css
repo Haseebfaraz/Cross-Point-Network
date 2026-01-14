@@ -91,6 +91,31 @@ a{
 /* Header */
 
 
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Keeps logo left, menu right */
+    padding: 10px 20px;
+    position: relative;
+}
+
+.hamburger {
+    display: none; /* Hidden on Desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white; /* Change color if needed */
+}
+
+
 #header-container {
     z-index: 2;
     position: relative;
@@ -1205,6 +1230,79 @@ button.choose-btn {
 {	
 
 
+
+    #header-container nav {
+        left: 0px;
+        order: -1;
+        padding: 10px 10px;
+    }
+
+.hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .nav-links {
+        display: none !important; /* Force hide the d-flex list */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Push it below the navbar */
+        left: 0;
+        background-color: #050510; /* Match your background color */
+        padding: 20px;
+        z-index: 1000;
+        gap: 20px !important; /* Adjust gap for vertical list */
+        text-align: center;
+    }
+
+    /* This class is added by JS to show the menu */
+    .nav-links.active {
+        display: flex !important;
+        width: 280px;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        text-align: left;
+        padding: 20px 30px !important;
+        background: linear-gradient(45deg, #774eff, transparent);
+        align-items: flex-start;
+        backdrop-filter: blur(3px);
+    }
+    #header-container button.hamburger {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+}
+/* Add a smooth transition to the lines so they animate nicely */
+.hamburger span {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+}
+
+/* --- THE CROSS ANIMATION --- */
+
+/* 1. Rotate top line & move it down */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* 2. Hide the middle line */
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+/* 3. Rotate bottom line & move it up */
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+button.hamburger.active {
+    z-index: 99999;
+    left: -80px;
+    position: relative;
+}
+
+
+
+
     .industry-box-content h3 {
         font-size: 22px;
     }
@@ -1216,7 +1314,7 @@ button.choose-btn {
         font-size: 14px;
     }
         #header-container nav ul li {
-        font-size: 14px;
+        font-size: 15px;
     }
     .banner-content h3 {
     font-size: 16px;
@@ -1294,6 +1392,9 @@ button.choose-btn {
 .testimonial-slider-content p {
         font-size: 18px;
     }
+    .logo {
+    text-align: end;
+}
 
 }
 @media (max-width: 1024px)
@@ -1365,7 +1466,9 @@ button.subs-btn-simple {
 }
 @media (max-width: 900px)
 {
-
+    button.hamburger.active {
+        left: -50px;
+    }
     .choose-us-content {
         padding: 0px 0px 0px 15px;
     }
@@ -1416,7 +1519,7 @@ button.subs-btn-simple {
     }
     .testimonial-slider-content {
     padding: 30px 10px 20px 15px;
-}
+    }
     #worldwide .worldwide-content {
         padding-right: 30px;
     }
@@ -1574,10 +1677,13 @@ button.subs-btn-simple {
     }
         #header-container button {
         background-color: #774EFF;
-        padding: 6px 4px 6px 12px;
+        padding: 4px 6px 6px 4px;
     }
-    .header-btn a {
-        font-size: 12px;
+        .header-btn a {
+        display: none;
+    }
+    .logo {
+        text-align: start;
     }
 
     .choose-us {
@@ -1710,6 +1816,19 @@ button.subs-btn-simple {
     .footer-content img {
     max-width: 70%;
 }
+    button.hamburger.active {
+        left: -20px;
+    }
+        .nav-links.active {
+        height: 100%;
+    }
+    #header-container button.hamburger {
+        padding: 0px 10px 0px 10px;
+    }
+    .hamburger span {
+    height: 2px;
+}
+
 
 }
 @media (max-width: 460px)
@@ -1876,6 +1995,14 @@ h2.content-heading {
         font-size: 20px;
         padding-bottom: 0px;
     }
+.industry-box-sm:hover::after {
+        margin-top: -124px;
+        height: 100px;
+    }
+    .industry-box-lg:hover::after {
+        margin-top: -238px;
+    }
+
     
 
 
