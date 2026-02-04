@@ -1296,8 +1296,8 @@ button.choose-btn {
 }
 button.hamburger.active {
     z-index: 99999;
-    left: -80px;
-    position: relative;
+    left: 30px;
+    position: fixed;
 }
 
 
@@ -1467,7 +1467,7 @@ button.subs-btn-simple {
 @media (max-width: 900px)
 {
     button.hamburger.active {
-        left: -50px;
+        left: 30px;
     }
     .choose-us-content {
         padding: 0px 0px 0px 15px;
